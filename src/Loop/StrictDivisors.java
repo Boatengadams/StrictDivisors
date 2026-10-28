@@ -1,3 +1,4 @@
+// Question: What are an integer’s strict divisors and their sum?
 package Loop;
 // A program which display the sum of the strict divisors of an integer given by the user
 // the stick divisor of a number N are <= N/2
@@ -7,7 +8,7 @@ package Loop;
 import java.util.Scanner;
 
 public class StrictDivisors {
-    static void main(String[] args) {work();}
+    public static void main(String[] args) {work();}
 
     public static void work() {
 //        enter number
@@ -18,16 +19,23 @@ public class StrictDivisors {
 
         Scanner input = new Scanner(System.in);
 
-        int sum = 1;
         System.out.print("Enter Your number:");
         int userNum = input.nextInt();
-        int divide = userNum/2 ;
-        for (int i = 2; i<=divide; i++)
-            if(userNum % i == 0){
-                sum +=i;
-                System.out.print(i + " " );
+        int sum = 0;
+        System.out.print("Strict divisors:");
+        if (userNum > 1) {
+            System.out.print(" 1");
+            sum = 1;
+            for (int i = 2; i <= userNum / 2; i++) {
+                if (userNum % i == 0) {
+                    sum += i;
+                    System.out.print(" " + i);
+                }
             }
-        System.out.print("= "+sum );
+        } else {
+            System.out.print(" none");
+        }
+        System.out.println("\nSum = " + sum);
 
 
     }
